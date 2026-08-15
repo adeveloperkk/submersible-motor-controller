@@ -435,13 +435,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   <!-- footer -->
   <div class="footer">
     <div class="footer-ip">192.168.1.51</div>
-    <div class="powered-by">
-      <span class="powered-by-label">Powered by</span>
-      <img class="powered-by-logo" id="brandLogo"
-        src="https://elevatebharat.com/files/static/img/landing/intro/logo.png"
-        alt="Elevate Bharat"
-        onerror="this.style.display='none';document.getElementById('brandText').style.display='block';">
-      <span class="powered-by-text" id="brandText">Elevate Bharat</span>
+    <div class="footer-powered">
+      <span>Powered by</span>
+      Elevate Bharat
     </div>
   </div>
 

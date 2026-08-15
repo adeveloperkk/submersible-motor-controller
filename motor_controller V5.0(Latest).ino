@@ -337,10 +337,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 /* ── footer ── */
 .footer{padding:24px 20px 0;text-align:center}
 .footer-ip{font-size:11px;color:#bbb;letter-spacing:.08em}
-.powered-by{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px}
-.powered-by-label{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#ccc}
-.powered-by-logo{height:18px;max-width:140px;object-fit:contain;opacity:.75}
-.powered-by-text{font-size:12px;font-weight:500;color:#999;letter-spacing:.02em;display:none}
 
 /* ── unlimited-run button (bottom-left, password protected) ── */
 .unlimited-btn{position:fixed;left:20px;bottom:20px;width:46px;height:46px;border-radius:50%;
@@ -427,7 +423,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
       <span class="slider-label">Custom Timer</span>
       <span class="slider-val" id="sliderVal">10:00</span>
     </div>
-    <input type="range" id="durSlider" min="1" max="20" step="1" value="2"
+    <input type="range" id="durSlider" min="1" max="20" step="1" value="3"
       oninput="sliderMove(this)">
     <button class="start-custom" onclick="startCustom()">▶ Start with this timer</button>
   </div>
@@ -440,6 +436,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
       Elevate Bharat
     </div>
   </div>
+
 
   <!-- unlimited-run button (password protected) -->
   <button class="unlimited-btn" onclick="startUnlimited()" title="Unlimited run (password required)">∞</button>

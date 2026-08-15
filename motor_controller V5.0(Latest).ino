@@ -337,6 +337,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 /* ── footer ── */
 .footer{padding:24px 20px 0;text-align:center}
 .footer-ip{font-size:11px;color:#bbb;letter-spacing:.08em}
+.powered-by{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px}
+.powered-by-label{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#ccc}
+.powered-by-logo{height:18px;max-width:140px;object-fit:contain;opacity:.75}
+.powered-by-text{font-size:12px;font-weight:500;color:#999;letter-spacing:.02em;display:none}
 
 /* ── unlimited-run button (bottom-left, password protected) ── */
 .unlimited-btn{position:fixed;left:20px;bottom:20px;width:46px;height:46px;border-radius:50%;
@@ -423,7 +427,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
       <span class="slider-label">Custom Timer</span>
       <span class="slider-val" id="sliderVal">10:00</span>
     </div>
-    <input type="range" id="durSlider" min="1" max="120" step="1" value="10"
+    <input type="range" id="durSlider" min="1" max="20" step="1" value="2"
       oninput="sliderMove(this)">
     <button class="start-custom" onclick="startCustom()">▶ Start with this timer</button>
   </div>
@@ -431,12 +435,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   <!-- footer -->
   <div class="footer">
     <div class="footer-ip">192.168.1.51</div>
-    <div class="footer-powered">
-      <span>Powered by</span>
-      Elevate Bharat
+    <div class="powered-by">
+      <span class="powered-by-label">Powered by</span>
+      <img class="powered-by-logo" id="brandLogo"
+        src="https://elevatebharat.com/files/static/img/landing/intro/logo.png"
+        alt="Elevate Bharat"
+        onerror="this.style.display='none';document.getElementById('brandText').style.display='block';">
+      <span class="powered-by-text" id="brandText">Elevate Bharat</span>
     </div>
   </div>
-
 
   <!-- unlimited-run button (password protected) -->
   <button class="unlimited-btn" onclick="startUnlimited()" title="Unlimited run (password required)">∞</button>
@@ -625,11 +632,11 @@ function presetStart(n) {
 }
 
 // ── main toggle ──────────────────────────────────────────────────────
-// "Start Motor" always runs a fixed 20-minute timer. Stopping never asks.
-var MAIN_BTN_DUR = 1200; // 20 min
+// "Start Motor" always runs a fixed 15-minute timer. Stopping never asks.
+var MAIN_BTN_DUR = 900; // 15 min
 function toggleMotor() {
   if (motorOn) { cmd('/api/off'); return; }
-  showConfirmModal('Start Motor', 'Start motor for 20 minutes?', function() {
+  showConfirmModal('Start Motor', 'Start motor for 15 minutes?', function() {
     cmd('/api/on?dur=' + MAIN_BTN_DUR);
   });
 }
@@ -718,7 +725,7 @@ function initSlider() {
 }
 function sliderMove(s) {
   var v = parseInt(s.value);
-  var pct = ((v-1)/(120-1)*100).toFixed(1) + '%';
+  var pct = ((v-1)/(20-1)*100).toFixed(1) + '%';
   s.style.setProperty('--pct', pct);
   document.getElementById('sliderVal').textContent = fmtSec(v * 60);
 }

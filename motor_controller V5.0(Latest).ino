@@ -431,7 +431,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   <!-- footer -->
   <div class="footer">
     <div class="footer-ip">192.168.1.51</div>
+    <div class="footer-powered">
+      <span>Powered by</span>
+      Elevate Bharat
+    </div>
   </div>
+
 
   <!-- unlimited-run button (password protected) -->
   <button class="unlimited-btn" onclick="startUnlimited()" title="Unlimited run (password required)">∞</button>
